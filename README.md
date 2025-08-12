@@ -1,61 +1,108 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Proyek API Manajemen Pengguna - Skill Test
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sebuah API RESTful sederhana yang dibangun menggunakan Laravel 12 dan MySQL untuk mengelola data pengguna (CRUD - Create, Read, Update, Delete) sebagai bagian dari *skill test* backend.
 
-## About Laravel
+-----
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Fitur Utama
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+  - **Tambah Pengguna Baru**: Mendaftarkan pengguna baru ke dalam database.
+  - **Lihat Daftar Pengguna**: Menampilkan semua pengguna yang terdaftar.
+  - **Lihat Detail Pengguna**: Melihat informasi lengkap dari satu pengguna berdasarkan ID.
+  - **Ubah Data Pengguna**: Memperbarui informasi pengguna yang sudah ada.
+  - **Hapus Pengguna**: Menghapus data pengguna dari database.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+-----
 
-## Learning Laravel
+## Tumpukan Teknologi (Tech Stack)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+  - **Backend**: [Laravel 12](https://laravel.com/)
+  - **Database**: [MySQL](https://www.mysql.com/)
+  - **Lingkungan Lokal**: [XAMPP](https://www.apachefriends.org/) (Apache & MySQL)
+  - **Dokumentasi**: [Postman](https://www.postman.com/)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+-----
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Instalasi dan Setup Lokal
 
-## Laravel Sponsors
+Ikuti langkah-langkah ini untuk menjalankan proyek di komputer lokal Anda.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+1.  **Clone Repositori**
+    Buka terminal atau Git Bash, arahkan ke direktori `htdocs` XAMPP Anda.
 
-### Premium Partners
+    ```bash
+    git clone [https://github.com/depsheeshh/user-management-api.git]
+    ```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+2.  **Masuk ke Direktori Proyek**
 
-## Contributing
+    ```bash
+    cd [user-management-api]
+    ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+3.  **Install Dependensi**
+    Pastikan Anda memiliki [Composer](https://getcomposer.org/) terpasang, lalu jalankan:
 
-## Code of Conduct
+    ```bash
+    composer install
+    ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+4.  **Konfigurasi File Environment**
+    Salin file `.env.example` menjadi file baru dengan nama `.env`.
 
-## Security Vulnerabilities
+    ```bash
+    # Untuk Windows (CMD)
+    copy .env.example .env
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+    # Untuk Linux/macOS/Git Bash
+    cp .env.example .env
+    ```
 
-## License
+5.  **Buat Database**
+    Buka browser dan akses `http://localhost/phpmyadmin`. Buat database baru dengan nama `db_user_management`.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+6.  **Atur Koneksi Database**
+    Buka file `.env` yang baru Anda buat, lalu isi seperti di bawah ini.
+
+    ```env
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=db_user_management
+    DB_USERNAME=root
+    DB_PASSWORD=
+    ```
+
+    *Catatan: Biarkan `DB_PASSWORD` kosong jika Anda menggunakan pengaturan default XAMPP.*
+
+7.  **Generate Key & Jalankan Migrasi**
+    Perintah ini akan membuat tabel `users` di database Anda.
+
+    ```bash
+    php artisan key:generate
+    php artisan migrate
+    ```
+
+8.  **Jalankan Server**
+
+    ```bash
+    php artisan serve
+    ```
+
+    Aplikasi API sekarang akan berjalan di `http://127.0.0.1:8000`.
+
+-----
+
+## Struktur Rute (API Endpoints)
+
+Berikut adalah rute utama yang digunakan dalam API ini:
+
+| Method | Path                  | Deskripsi                               |
+| :----- | :-------------------- | :-------------------------------------- |
+| `GET`  | `/api/users`          | Mengambil daftar semua pengguna.        |
+| `POST` | `/api/users`          | Menambahkan pengguna baru.              |
+| `GET`  | `/api/users/{id}`     | Menampilkan detail satu pengguna.       |
+| `PUT`  | `/api/users/{id}`     | Memperbarui data satu pengguna.         |
+| `DELETE`| `/api/users/{id}`    | Menghapus satu pengguna.                |
+
+**Catatan**: Untuk detail lengkap tentang *body request* dan contoh respons, silakan impor file `User_Management_API.postman_collection.json` yang tersedia di *root* proyek ke aplikasi Postman Anda.
