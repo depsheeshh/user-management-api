@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "4ea9398e-6f16-4b24-a61a-aaff0bfdae51",
+		"name": "API Manajemen User",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46054685",
+		"_collection_link": "https://depsheeshh-1703526.postman.co/workspace/620cdfbb-1f08-4148-8dca-369da71a63c3/collection/46054685-4ea9398e-6f16-4b24-a61a-aaff0bfdae51?action=share&source=collection_link&creator=46054685"
+	},
+	"item": [
+		{
+			"name": "Get All Users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/users",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users"
+					]
+				},
+				"description": "Endpoint ini digunakan untuk mengambil daftar lengkap semua pengguna yang terdaftar di dalam database."
+			},
+			"response": []
+		},
+		{
+			"name": "Create New User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Bayu\",\r\n    \"email\": \"bayy@cic.ac.id\",\r\n    \"password\": \"bayu1234\",\r\n    \"phone\": \"089876543210\",\r\n    \"is_active\": true,\r\n    \"department\": \"Engineering\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/users",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users"
+					]
+				},
+				"description": "Endpoint ini digunakan untuk mendaftarkan pengguna baru ke dalam sistem."
+			},
+			"response": []
+		},
+		{
+			"name": "Edit User",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Johnson\",\r\n    \"email\": \"john21@gmail.com\",\r\n    \"phone\": \"082318859485\",\r\n    \"is_active\": true,\r\n    \"department\": \"Finance\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/users/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				},
+				"description": "Endpoint ini digunakan untuk memperbarui data pengguna yang sudah ada. Anda hanya perlu mengirimkan field yang ingin diubah."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/users/6",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						"6"
+					]
+				},
+				"description": "Endpoint ini digunakan untuk menghapus pengguna dari database secara permanen."
+			},
+			"response": []
+		}
+	]
+}
