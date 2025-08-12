@@ -1,100 +1,108 @@
-Proyek API Manajemen User (Skill Test)
-Ini adalah proyek API RESTful sederhana untuk manajemen pengguna yang dibuat sebagai bagian dari skill test backend. API ini mencakup fungsionalitas CRUD (Create, Read, Update, Delete) untuk data pengguna, lengkap dengan validasi input dan penanganan error yang informatif.
+# Proyek API Manajemen Pengguna - Skill Test
 
-Stack Teknologi
-Framework: Laravel 12
+Sebuah API RESTful sederhana yang dibangun menggunakan Laravel 12 dan MySQL untuk mengelola data pengguna (CRUD - Create, Read, Update, Delete) sebagai bagian dari *skill test* backend.
 
-Bahasa: PHP 8.2+
+-----
 
-Database: MySQL
+## Fitur Utama
 
-Web Server (Lokal): XAMPP (Apache)
+  - **Tambah Pengguna Baru**: Mendaftarkan pengguna baru ke dalam database.
+  - **Lihat Daftar Pengguna**: Menampilkan semua pengguna yang terdaftar.
+  - **Lihat Detail Pengguna**: Melihat informasi lengkap dari satu pengguna berdasarkan ID.
+  - **Ubah Data Pengguna**: Memperbarui informasi pengguna yang sudah ada.
+  - **Hapus Pengguna**: Menghapus data pengguna dari database.
 
-Dokumentasi: Postman Collection
+-----
 
-Instalasi & Cara Menjalankan (Lokal dengan XAMPP)
-Pastikan Anda sudah menginstal dan menjalankan XAMPP (service Apache & MySQL harus aktif).
+## Tumpukan Teknologi (Tech Stack)
 
-Clone Repository
-Clone repository ini ke dalam direktori htdocs XAMPP Anda.
+  - **Backend**: [Laravel 12](https://laravel.com/)
+  - **Database**: [MySQL](https://www.mysql.com/)
+  - **Lingkungan Lokal**: [XAMPP](https://www.apachefriends.org/) (Apache & MySQL)
+  - **Dokumentasi**: [Postman](https://www.postman.com/)
 
-git clone [URL_REPOSITORY_ANDA]
-cd [NAMA_FOLDER_PROYEK]
+-----
 
-Instal Dependensi
-Jalankan perintah berikut untuk menginstal semua paket yang dibutuhkan Laravel.
+## Instalasi dan Setup Lokal
 
-composer install
+Ikuti langkah-langkah ini untuk menjalankan proyek di komputer lokal Anda.
 
-Konfigurasi Environment
-Salin file .env.example menjadi .env.
+1.  **Clone Repositori**
+    Buka terminal atau Git Bash, arahkan ke direktori `htdocs` XAMPP Anda.
 
-copy .env.example .env
+    ```bash
+    git clone [URL_REPOSITORY_ANDA]
+    ```
 
-Buat Database
-Buka phpMyAdmin (http://localhost/phpmyadmin) dan buat database baru, misalnya dengan nama db_user_management.
+2.  **Masuk ke Direktori Proyek**
 
-Atur Koneksi Database di file .env
-Buka file .env dan sesuaikan konfigurasinya seperti di bawah ini (password default XAMPP biasanya kosong).
+    ```bash
+    cd [NAMA_FOLDER_PROYEK]
+    ```
 
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=db_user_management
-DB_USERNAME=root
-DB_PASSWORD=
+3.  **Install Dependensi**
+    Pastikan Anda memiliki [Composer](https://getcomposer.org/) terpasang, lalu jalankan:
 
-Generate Key & Jalankan Migrasi
-Perintah ini akan membuat tabel users di database Anda.
+    ```bash
+    composer install
+    ```
 
-php artisan key:generate
-php artisan migrate
+4.  **Konfigurasi File Environment**
+    Salin file `.env.example` menjadi file baru dengan nama `.env`.
 
-Jalankan Aplikasi
-Gunakan server pengembangan bawaan Laravel.
+    ```bash
+    # Untuk Windows (CMD)
+    copy .env.example .env
 
-php artisan serve
+    # Untuk Linux/macOS/Git Bash
+    cp .env.example .env
+    ```
 
-Aplikasi API sekarang berjalan dan siap diakses di http://127.0.0.1:8000.
+5.  **Buat Database**
+    Buka browser dan akses `http://localhost/phpmyadmin`. Buat database baru dengan nama `db_user_management`.
 
-Dokumentasi API
-Berikut adalah ringkasan untuk setiap endpoint yang tersedia.
+6.  **Atur Koneksi Database**
+    Buka file `.env` yang baru Anda buat, lalu isi seperti di bawah ini.
 
-1. Get All Users
-Method: GET
+    ```env
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=db_user_management
+    DB_USERNAME=root
+    DB_PASSWORD=
+    ```
 
-Endpoint: /api/users
+    *Catatan: Biarkan `DB_PASSWORD` kosong jika Anda menggunakan pengaturan default XAMPP.*
 
-Deskripsi: Mengambil daftar lengkap semua pengguna.
+7.  **Generate Key & Jalankan Migrasi**
+    Perintah ini akan membuat tabel `users` di database Anda.
 
-2. Create New User
-Method: POST
+    ```bash
+    php artisan key:generate
+    php artisan migrate
+    ```
 
-Endpoint: /api/users
+8.  **Jalankan Server**
 
-Deskripsi: Mendaftarkan pengguna baru.
+    ```bash
+    php artisan serve
+    ```
 
-Body Request (JSON): name, email, password, password_confirmation, phone_number, is_active, department.
+    Aplikasi API sekarang akan berjalan di `http://127.0.0.1:8000`.
 
-3. Get Specific User
-Method: GET
+-----
 
-Endpoint: /api/users/{id}
+## Struktur Rute (API Endpoints)
 
-Deskripsi: Mengambil detail satu pengguna berdasarkan ID.
+Berikut adalah rute utama yang digunakan dalam API ini:
 
-4. Update User
-Method: PUT
+| Method | Path                  | Deskripsi                               |
+| :----- | :-------------------- | :-------------------------------------- |
+| `GET`  | `/api/users`          | Mengambil daftar semua pengguna.        |
+| `POST` | `/api/users`          | Menambahkan pengguna baru.              |
+| `GET`  | `/api/users/{id}`     | Menampilkan detail satu pengguna.       |
+| `PUT`  | `/api/users/{id}`     | Memperbarui data satu pengguna.         |
+| `DELETE`| `/api/users/{id}`    | Menghapus satu pengguna.                |
 
-Endpoint: /api/users/{id}
-
-Deskripsi: Memperbarui data pengguna yang sudah ada.
-
-5. Delete User
-Method: DELETE
-
-Endpoint: /api/users/{id}
-
-Deskripsi: Menghapus pengguna dari database.
-
-Catatan: Untuk detail lengkap tentang body request dan contoh respons, silakan impor file User_Management_API.postman_collection.json yang tersedia di root proyek ke aplikasi Postman Anda.
+**Catatan**: Untuk detail lengkap tentang *body request* dan contoh respons, silakan impor file `User_Management_API.postman_collection.json` yang tersedia di *root* proyek ke aplikasi Postman Anda.
