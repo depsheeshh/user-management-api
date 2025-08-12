@@ -31,13 +31,13 @@ Ikuti langkah-langkah ini untuk menjalankan proyek di komputer lokal Anda.
     Buka terminal atau Git Bash, arahkan ke direktori `htdocs` XAMPP Anda.
 
     ```bash
-    git clone [URL_REPOSITORY_ANDA]
+    git clone [https://github.com/depsheeshh/user-management-api.git]
     ```
 
 2.  **Masuk ke Direktori Proyek**
 
     ```bash
-    cd [NAMA_FOLDER_PROYEK]
+    cd [user-management-api]
     ```
 
 3.  **Install Dependensi**
