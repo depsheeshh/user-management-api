@@ -106,3 +106,10 @@ Berikut adalah rute utama yang digunakan dalam API ini:
 | `DELETE`| `/api/users/{id}`    | Menghapus satu pengguna.                |
 
 **Catatan**: Untuk detail lengkap tentang *body request* dan contoh respons, silakan impor file `User_Management_API.postman_collection.json` yang tersedia di *root* proyek ke aplikasi Postman Anda.
+
+---
+## Rencana Pengembangan Selanjutnya
+
+Untuk membuat proyek ini lebih portabel dan mudah dijalankan di lingkungan mana pun, langkah selanjutnya yang bisa dilakukan adalah:
+
+-   **Containerization dengan Docker**: Membungkus aplikasi, web server, dan database ke dalam container Docker menggunakan `docker-compose`. Ini akan menghilangkan kebutuhan untuk instalasi manual seperti XAMPP dan memastikan lingkungan pengembangan yang konsisten.
