@@ -8,7 +8,6 @@ Sebuah API RESTful sederhana yang dibangun menggunakan Laravel 12 dan MySQL untu
 
   - **Tambah Pengguna Baru**: Mendaftarkan pengguna baru ke dalam database.
   - **Lihat Daftar Pengguna**: Menampilkan semua pengguna yang terdaftar.
-  - **Lihat Detail Pengguna**: Melihat informasi lengkap dari satu pengguna berdasarkan ID.
   - **Ubah Data Pengguna**: Memperbarui informasi pengguna yang sudah ada.
   - **Hapus Pengguna**: Menghapus data pengguna dari database.
 
@@ -79,7 +78,6 @@ Ikuti langkah-langkah ini untuk menjalankan proyek di komputer lokal Anda.
     Perintah ini akan membuat tabel `users` di database Anda.
 
     ```bash
-    php artisan key:generate
     php artisan migrate
     ```
 
@@ -101,7 +99,6 @@ Berikut adalah rute utama yang digunakan dalam API ini:
 | :----- | :-------------------- | :-------------------------------------- |
 | `GET`  | `/api/users`          | Mengambil daftar semua pengguna.        |
 | `POST` | `/api/users`          | Menambahkan pengguna baru.              |
-| `GET`  | `/api/users/{id}`     | Menampilkan detail satu pengguna.       |
 | `PUT`  | `/api/users/{id}`     | Memperbarui data satu pengguna.         |
 | `DELETE`| `/api/users/{id}`    | Menghapus satu pengguna.                |
 
